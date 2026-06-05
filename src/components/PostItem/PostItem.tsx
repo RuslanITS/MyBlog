@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Button, Card, Spinner } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import type { FPosts, Post } from "../../type";
 import axiosApi from "../../api/fairbase";
 
@@ -53,9 +54,11 @@ const Posts = () => {
               {post.text}
             </Card.Text>
 
-            <Button>
-              Read More
-            </Button>
+            <Link to={`/posts/${post.id}`}>
+              <Button>
+                Read More
+              </Button>
+            </Link>
           </Card.Body>
         </Card>
       ))}

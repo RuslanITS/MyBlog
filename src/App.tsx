@@ -1,6 +1,7 @@
 import './App.css';
 import { Routes, Route } from "react-router-dom";
 import { Container } from "react-bootstrap";
+import PostDetails from "./containers/PostDetails/PostDetails.tsx";
 
 import Header from "./components/Header/Header";
 import Home from "./containers/Home/Home";
@@ -19,6 +20,10 @@ const App = () => (
           <Route path="/contacts" element={<Contacts />} />
           <Route path="/add" element={<Add />} />
           <Route path="/about" element={<About />} />
+          <Route
+            path="/posts/:id"
+            element={<PostDetails />}
+          />
         </Routes>
       </Container>
     </main>

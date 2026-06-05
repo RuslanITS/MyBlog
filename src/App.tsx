@@ -1,8 +1,8 @@
 import './App.css';
 import { Routes, Route } from "react-router-dom";
 import { Container } from "react-bootstrap";
+import EditPost from "./containers/EditPost/EditPost.tsx";
 import PostDetails from "./containers/PostDetails/PostDetails.tsx";
-
 import Header from "./components/Header/Header";
 import Home from "./containers/Home/Home";
 import Contacts from "./containers/Contacts/Contacts";
@@ -23,6 +23,10 @@ const App = () => (
           <Route
             path="/posts/:id"
             element={<PostDetails />}
+          />
+          <Route
+            path="/posts/:id/edit"
+            element={<EditPost />}
           />
         </Routes>
       </Container>

@@ -41,6 +41,26 @@ const Posts = () => {
     return <Spinner />;
   }
 
+  if (posts.length === 0) {
+    return (
+      <Card className="text-center p-5 shadow-sm">
+        <Card.Body>
+          <h3>No posts yet</h3>
+
+          <p className="text-muted mb-4">
+            Create your first post and start sharing your thoughts.
+          </p>
+
+          <Link to="/add">
+            <Button variant="primary">
+              Create First Post
+            </Button>
+          </Link>
+        </Card.Body>
+      </Card>
+    );
+  }
+
   return (
     <>
       {posts.map((post) => (

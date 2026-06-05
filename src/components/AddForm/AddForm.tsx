@@ -1,4 +1,5 @@
 import { useState, type ChangeEvent, type SyntheticEvent } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button, Form } from "react-bootstrap";
 import { toast } from "react-toastify";
 import axiosApi from "../../api/fairbase.ts";
@@ -9,6 +10,7 @@ interface PostForm {
 }
 
 const AddForm = () => {
+  const navigate = useNavigate();
 
   const [state, setState] = useState<PostForm>({
     author: "",
@@ -38,6 +40,7 @@ const AddForm = () => {
         author: "",
         text: "",
       });
+      navigate('/');
     }catch (error) {
       console.error(error);
       toast.error('Failed to create post!');
@@ -54,8 +57,12 @@ const AddForm = () => {
           onChange={changeHandler}
           type="text"
           value={state.author}
+          maxLength={50}
           placeholder="Enter your name"
         />
+        <Form.Text className="text-muted">
+          {state.author.length}/50
+        </Form.Text>
       </Form.Group>
 
       <Form.Group className="mb-3">
@@ -65,12 +72,18 @@ const AddForm = () => {
           onChange={changeHandler}
           as="textarea"
           rows={5}
+          maxLength={200}
           value={state.text}
           placeholder="Enter post text"
         />
+        <Form.Text className="text-muted">
+          {state.text.length}/200
+        </Form.Text>
       </Form.Group>
 
-      <Button type="submit">Create Post</Button>
+      <Button
+
+        type="submit">Create Post</Button>
     </Form>
   );
 };

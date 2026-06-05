@@ -1,5 +1,6 @@
 import './App.css';
 import { Routes, Route } from "react-router-dom";
+import { Container } from "react-bootstrap";
 
 import Header from "./components/Header/Header";
 import Home from "./containers/Home/Home";
@@ -12,12 +13,14 @@ const App = () => (
     <Header />
 
     <main className="content">
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/contacts" element={<Contacts />} />
-        <Route path="/add" element={<Add />} />
-        <Route path="/about" element={<About />} />
-      </Routes>
+      <Container className="py-4">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/contacts" element={<Contacts />} />
+          <Route path="/add" element={<Add />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </Container>
     </main>
   </div>
 );
